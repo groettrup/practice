@@ -12,4 +12,13 @@ going through the video lessons[^1]
 - Inequality can be written as `/=` or as `#`
 - general rule: use primed vars only in `v' = ..` and `v' \in ...`
 
+## [Lecture 5](https://lamport.azurewebsites.net/video/video5.html)
+
+- The spec should define the "what" not the "how"
+  - minister is an example of "how"
+  - find more examples
+- negation is written as `~`
+- `\A` and `\E` exdend as far as possible
+- this video also explains the different kinds of comments
+
 [^1]: https://lamport.azurewebsites.net/video/videos.html
