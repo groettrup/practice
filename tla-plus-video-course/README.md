@@ -56,4 +56,12 @@ RMRcvAbortMsg(r) == /* unneeded /\ \/ rmState[r] = "prepared"
                     /\ UNCHANGED <<rmState, tmPrepared, msgs>> /* forgot this as well
 ```
 
+## [Lecture 7](https://lamport.azurewebsites.net/video/video7.html)
+
+- [Link to paxos paper](https://lamport.azurewebsites.net/video/consensus-on-transaction-commit.pdf)
+- in this case Acceptor and RM are symmetry sets of model values, because
+  exchanging two values in the set leaves expressions unchanged.
+  - `{{a1,a2},{a1,a3,},{a2,a3}} = {{a3,a2},{a3,a1,},{a2,a1}}`
+- Elements of a symmetry set may not appear in a `CHOOSE` expression
+
 [^1]: https://lamport.azurewebsites.net/video/videos.html
