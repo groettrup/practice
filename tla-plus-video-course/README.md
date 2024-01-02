@@ -21,4 +21,39 @@ going through the video lessons[^1]
 - `\A` and `\E` exdend as far as possible
 - this video also explains the different kinds of comments
 
+## [Lecture 6](https://lamport.azurewebsites.net/video/video6.html)
+
+- the term  `UNCHANGED <<...>>` can be used to declare a set of variables as
+  unchaged in a step
+- write down definitions
+
+```tla
+\* allows steps where TM sends Commit messages to the RMs and sets tmState to "done"
+TMCommit == /\ tmPrepared = RM
+            /\ tmState = "init" \* forgot this prerequisite
+            /\ tmState' = "done"
+            /\ msgs' = msgs \cup {[type |-> "Commit"]} /* my test: [type: "Commit"]
+            /\ UNCHANGED <<rmState, tmPrepared>> /* forgot this as well
+TMAbort == /\ tmState = "init"
+           /\ tmState' = "done"
+           /\ msgs' = msgs \cup {[type |-> "Abort"]} /* same as before
+            /\ UNCHANGED <<rmState, tmPrepared>> /* forgot this as well
+RMPrepare(r) == /\ rmState[r] = "working"
+                /\ rmState' = [rmState EXCEPT ![r] = "prepared"] /* forgot `rmState' =`
+                /\ msgs' = msgs \cup {[type |-> "Prepared", rm |-> r]} /* forgot `{}`
+                /\ UNCHANGED <<rmState, tmPrepared>> /* forgot this as well
+RMChooseToAbort(r) == /\ rmState[r] = "working"
+                      /\ rmState' = [rmState EXCEPT ![r] = "aborted" /* forgot `rmState' =`
+                      /\ UNCHANGED <<rmState, tmPrepared, msgs>> /* forgot this as well
+RMRcvCommitMsg(r) == /* unneeded `/\ rmState[r] = "prepared"`
+                     /\ [type |-> "Commit"] \in msgs
+                     /\ rmState' = [rmState EXCEPT ![r] = "committed"] /* rmState[r] = "committed"
+                     /\ UNCHANGED <<rmState, tmPrepared, msgs>> /* forgot this as well
+RMRcvAbortMsg(r) == /* unneeded /\ \/ rmState[r] = "prepared"
+                    /*             \/ rmState[r] = "working"
+                    /\ [type |-> "Abort"] \in msgs
+                    /\ rmState' = [rmState EXCEPT ![r] = "aborted"] /* rmState[r] = "aborted"
+                    /\ UNCHANGED <<rmState, tmPrepared, msgs>> /* forgot this as well
+```
+
 [^1]: https://lamport.azurewebsites.net/video/videos.html
