@@ -64,4 +64,26 @@ RMRcvAbortMsg(r) == /* unneeded /\ \/ rmState[r] = "prepared"
   - `{{a1,a2},{a1,a3,},{a2,a3}} = {{a3,a2},{a3,a1,},{a2,a1}}`
 - Elements of a symmetry set may not appear in a `CHOOSE` expression
 
+## [Lecture 8 a](https://lamport.azurewebsites.net/video/video8a.html)
+
+> In speech, implication asserts causality. In math, implication asserts only correlation
+
+- state expressions and action expressions
+- temporal formulas
+
+## [Lecture 8 b](https://lamport.azurewebsites.net/video/video8b.html)
+
+- `[TCNext]_rmState == TCNext \/ UNCHANGED <<rmState>>`
+- stuttering is when all states stay unchanged
+
+> Our specs allow a system to stop at any time _[ with infinite many stuttering steps ]_.
+> They specify what the system **may** do.
+> They don't specify what the system **must** do.
+
+## [Lecture 9 a](https://lamport.azurewebsites.net/video/video9a.html)
+
+## [Lecture 9 b](https://lamport.azurewebsites.net/video/video9b.html)
+
+
+
 [^1]: https://lamport.azurewebsites.net/video/videos.html
