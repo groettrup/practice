@@ -78,9 +78,35 @@ RMRcvAbortMsg(r) == /* unneeded /\ \/ rmState[r] = "prepared"
 
 > Our specs allow a system to stop at any time _[ with infinite many stuttering steps ]_.
 > They specify what the system **may** do.
-> They don't specify what the system **must** do.
+> They don't specify what the system **must do.
 
 ## [Lecture 9 a](https://lamport.azurewebsites.net/video/video9a.html)
+
+- using example alternating bit protocol
+- finite sequences: `<<-3, "xyz", {0,2}>>[1] = -3`
+- Sequences module defines useful functions
+- `\o` is concatenation
+- `\X` is cartesian product
+- may: safety formula
+  - not satisfying Init in the first step 
+  - or at a step not satisfying $[Next]_vars$
+- must: liveness formula
+  - cannot violate at any point: the rest of the behavior can always make it true
+  - asserted by `<>` (pronounced eventually)
+  - `(AVar = <<"hi",0>>) ~> (BVar = <<"hi",0>>)` means a _leads to_ b
+  - Ex.: `<>P = ~[]~P`
+- Enabled: In ABSpec `A` is enabled iff `AVar = BVar /\ Data # {}`.
+- `WF_vars(A)`: weak fairnes of `A` with `vars` being a tuple of all variables
+  in the spec _(pronounced WF of A)_
+- `SF_vars(A)`: strong fairnes of `A` with `vars` being a tuple of all variables
+  in the spec _(pronounced SF of A)_
+- Spec with liveness: `Init /\ [ ][Next]_vars /\ Fairness`
+  - Fairness is a conjunction of weak and strong fairness formulas of subaction of Next.
+- Ex.: The two formulas are equivalent
+
+> `WF_vars(A)` asserts of a behavior:
+> If `A /\ (vars' # vars)` ever remains continuously enabled, then
+> `A /\ (vars'# vars)` step must eventually occur.
 
 ## [Lecture 9 b](https://lamport.azurewebsites.net/video/video9b.html)
 
