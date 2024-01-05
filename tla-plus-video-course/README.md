@@ -110,6 +110,7 @@ RMRcvAbortMsg(r) == /* unneeded /\ \/ rmState[r] = "prepared"
 
 ## [Lecture 9 b](https://lamport.azurewebsites.net/video/video9b.html)
 
-
+> Strong fairness of action `A` asserts of a behavior:
+> If `A` ever **is repeatedly** enabled, then an `A` step must eventually occur.
 
 [^1]: https://lamport.azurewebsites.net/video/videos.html
