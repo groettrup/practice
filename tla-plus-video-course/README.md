@@ -116,5 +116,11 @@ RMRcvAbortMsg(r) == /* unneeded /\ \/ rmState[r] = "prepared"
 ## [Lecture 10 a](https://lamport.azurewebsites.net/video/video10a.html)
 
 - Introducing substitutions
+- _I forgot to use State Constraints in the Spec Options when checking the Model_
+
+## [Lecture 10 b](https://lamport.azurewebsites.net/video/video10b.html)
+
+- Spec AB2H is used to show that AB2 implements AB
+- [auxiliary variables in tla+](https://lamport.azurewebsites.net/pubs/auxiliary.pdf)
 
 [^1]: https://lamport.azurewebsites.net/video/videos.html

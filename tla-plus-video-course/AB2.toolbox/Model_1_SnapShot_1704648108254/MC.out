@@ -1,0 +1,51 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 52 and seed -5671863165824872231 with 4 workers on 8 cores with 578MB heap and 1297MB offheap memory [pid: 955396] (Linux 6.6.8-arch1-1 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /home/alexander/Areas/Programming/practice/tla-plus-video-course/AB2.toolbox/Model_1/MC.tla
+Parsing file /home/alexander/Areas/Programming/practice/tla-plus-video-course/AB2.toolbox/Model_1/AB2.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/TLC.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Integers.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Sequences.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Naturals.tla
+Parsing file /home/alexander/Areas/Programming/practice/tla-plus-video-course/AB2.toolbox/Model_1/ABSpec.tla
+Parsing file /home/alexander/Areas/Programming/practice/tla-plus-video-course/AB2.toolbox/Model_1/AB.tla
+Parsing file /usr/share/java/tla-toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module ABSpec
+Semantic processing of module AB
+Semantic processing of module AB2
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2024-01-07 18:19:10)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 2 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 3 distinct states generated at 2024-01-07 18:19:10.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(16) at 2024-01-07 18:19:13: 1.411.951 states generated (1.411.951 s/min), 223.469 distinct states found (223.469 ds/min), 104.440 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(22) at 2024-01-07 18:20:13: 70.584.127 states generated (69.172.176 s/min), 7.928.563 distinct states found (7.705.094 ds/min), 3.513.339 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(23) at 2024-01-07 18:21:13: 138.032.988 states generated (67.448.861 s/min), 14.690.826 distinct states found (6.762.263 ds/min), 6.450.135 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
