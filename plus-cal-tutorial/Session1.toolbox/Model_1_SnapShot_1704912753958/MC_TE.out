@@ -2,7 +2,7 @@
 TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
 @!@!@ENDMSG 2262 @!@!@
 @!@!@STARTMSG 2187:0 @!@!@
-Running breadth-first search Model-Checking with fp 31 and seed 397248896857208636 with 2 workers on 8 cores with 1732MB heap and 64MB offheap memory [pid: 1285356] (Linux 6.6.8-arch1-1 amd64, AdoptOpenJDK 14.0.1 x86_64, NoopFPSet, DiskStateQueue).
+Running breadth-first search Model-Checking with fp 68 and seed -1464514050497606411 with 2 workers on 8 cores with 1732MB heap and 64MB offheap memory [pid: 1284932] (Linux 6.6.8-arch1-1 amd64, AdoptOpenJDK 14.0.1 x86_64, NoopFPSet, DiskStateQueue).
 @!@!@ENDMSG 2187 @!@!@
 @!@!@STARTMSG 2220:0 @!@!@
 Starting SANY...
@@ -25,14 +25,14 @@ Semantic processing of module MC
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2024-01-10 21:00:43)
+Starting... (2024-01-10 19:52:32)
 @!@!@ENDMSG 2185 @!@!@
-<<"$!@$!@$!@$!@$!", TRUE>>
+<<"$!@$!@$!@$!@$!", {<<1>>, <<1, 2>>, <<2, 2>>, <<1, 2, 3>>, <<3, 3, 3>>}>>
 @!@!@STARTMSG 2189:0 @!@!@
 Computing initial states...
 @!@!@ENDMSG 2189 @!@!@
 @!@!@STARTMSG 2190:0 @!@!@
-Finished computing initial states: 0 distinct states generated at 2024-01-10 21:00:43.
+Finished computing initial states: 0 distinct states generated at 2024-01-10 19:52:32.
 @!@!@ENDMSG 2190 @!@!@
 @!@!@STARTMSG 2193:0 @!@!@
 Model checking completed. No error has been found.
@@ -41,7 +41,7 @@ Model checking completed. No error has been found.
   calculated (optimistic):  val = 0.0
 @!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(1) at 2024-01-10 21:00:43: 0 states generated (0 s/min), 0 distinct states found (0 ds/min), 0 states left on queue.
+Progress(1) at 2024-01-10 19:52:32: 0 states generated (0 s/min), 0 distinct states found (0 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
 0 states generated, 0 distinct states found, 0 states left on queue.
@@ -50,5 +50,5 @@ Progress(1) at 2024-01-10 21:00:43: 0 states generated (0 s/min), 0 distinct sta
 The depth of the complete state graph search is 1.
 @!@!@ENDMSG 2194 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 894ms at (2024-01-10 21:00:43)
+Finished in 908ms at (2024-01-10 19:52:32)
 @!@!@ENDMSG 2186 @!@!@

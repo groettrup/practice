@@ -2,14 +2,15 @@
 EXTENDS Session1, TLC
 
 \* Constant expression definition @modelExpressionEval
-const_expr_170491684259422000 == 
-IsPrime(79)
+const_expr_17047917643345000 == 
+<<2+2,3>>
+
 ----
 
 \* Constant expression ASSUME statement @modelExpressionEval
-ASSUME PrintT(<<"$!@$!@$!@$!@$!",const_expr_170491684259422000>>)
+ASSUME PrintT(<<"$!@$!@$!@$!@$!",const_expr_17047917643345000>>)
 ----
 
 =============================================================================
 \* Modification History
-\* Created Wed Jan 10 21:00:42 CET 2024 by alexander
+\* Created Tue Jan 09 10:16:04 CET 2024 by alexander
