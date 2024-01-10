@@ -18,12 +18,12 @@ ASSUME  /\ \A t \in Tuples : \A i \in 1..Len(t): t[i] > minValue
      } ;
      assert IF inp = << >> THEN max = minValue
                            ELSE /\ \E n \in 1..Len(inp) : max = inp[n]
-                                /\ \A n \in 1..Len(inp) : max >= inp[n] 
+                                /\ \A n \in 1..Len(inp) : max > inp[n] 
    }
 }
 
 ********)
-\* BEGIN TRANSLATION (chksum(pcal) = "e4bb504" /\ chksum(tla) = "4cb81143")
+\* BEGIN TRANSLATION (chksum(pcal) = "12332632" /\ chksum(tla) = "92e726fd")
 VARIABLES inp, max, i, pc
 
 vars == << inp, max, i, pc >>
@@ -50,7 +50,7 @@ Lbl_2 == /\ pc = "Lbl_2"
                     /\ pc' = "Lbl_2"
                ELSE /\ Assert(IF inp = << >> THEN max = minValue
                                              ELSE /\ \E n \in 1..Len(inp) : max = inp[n]
-                                                  /\ \A n \in 1..Len(inp) : max >= inp[n], 
+                                                  /\ \A n \in 1..Len(inp) : max > inp[n], 
                               "Failure of assertion at line 19, column 6.")
                     /\ pc' = "Done"
                     /\ UNCHANGED << max, i >>
@@ -69,5 +69,5 @@ Termination == <>(pc = "Done")
 \* END TRANSLATION 
 ===========================================
 \* Modification History
-\* Last modified Thu Jan 11 00:28:03 CET 2024 by alexander
+\* Last modified Thu Jan 11 00:26:15 CET 2024 by alexander
 \* Created Fri Dec 25 11:48:28 PST 2020 by claus

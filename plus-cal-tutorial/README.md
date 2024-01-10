@@ -32,3 +32,8 @@ this folder contains my notes about the [PlusCal Tutorial](https://lamport.azure
 - Property Driven Development: decide what a program should do before thinking
   about the how
 - [Why parenthesis are needed](https://lamport.azurewebsites.net/tla/tutorial/parens.html)
+- [Why Seq?](https://lamport.azurewebsites.net/tla/tutorial/why-seq.html)
+
+### Puzzle
+
+- Writing the empty tuple: `<< >>, [{} -> {}], [1..0 -> -0..-1]`

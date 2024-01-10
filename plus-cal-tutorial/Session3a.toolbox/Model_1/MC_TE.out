@@ -2,7 +2,7 @@
 TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
 @!@!@ENDMSG 2262 @!@!@
 @!@!@STARTMSG 2187:0 @!@!@
-Running breadth-first search Model-Checking with fp 112 and seed 2014193928287263844 with 2 workers on 8 cores with 578MB heap and 1297MB offheap memory [pid: 1535248] (Linux 6.6.8-arch1-1 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+Running breadth-first search Model-Checking with fp 98 and seed -4147027795239417198 with 2 workers on 8 cores with 578MB heap and 1297MB offheap memory [pid: 1631457] (Linux 6.6.8-arch1-1 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
 @!@!@ENDMSG 2187 @!@!@
 @!@!@STARTMSG 2220:0 @!@!@
 Starting SANY...
@@ -26,189 +26,167 @@ Semantic processing of module MC
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2024-01-10 23:46:03)
+Starting... (2024-01-11 00:28:05)
 @!@!@ENDMSG 2185 @!@!@
 @!@!@STARTMSG 2189:0 @!@!@
 Computing initial states...
 @!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 2 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 4 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 8 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 16 initial states...
+@!@!@ENDMSG 2269 @!@!@
 @!@!@STARTMSG 2190:0 @!@!@
-Finished computing initial states: 1 distinct state generated at 2024-01-10 23:46:04.
+Finished computing initial states: 32 distinct states generated at 2024-01-11 00:28:06.
 @!@!@ENDMSG 2190 @!@!@
-@!@!@STARTMSG 2132:1 @!@!@
-The first argument of Assert evaluated to FALSE; the second argument was:
-"Failure of assertion at line 17, column 6."
-@!@!@ENDMSG 2132 @!@!@
-@!@!@STARTMSG 2121:1 @!@!@
-The behavior up to this point is:
-@!@!@ENDMSG 2121 @!@!@
-@!@!@STARTMSG 2217:4 @!@!@
-1: <Initial predicate>
-/\ i = 1
-/\ pc = "Lbl_1"
-/\ inp = <<1, 3, 2>>
-/\ max = -99999
-
-@!@!@ENDMSG 2217 @!@!@
-@!@!@STARTMSG 2217:4 @!@!@
-2: <Lbl_1 line 35, col 10 to line 39, col 39 of module Session3a>
-/\ i = 1
-/\ pc = "Lbl_2"
-/\ inp = <<1, 3, 2>>
-/\ max = -99999
-
-@!@!@ENDMSG 2217 @!@!@
-@!@!@STARTMSG 2217:4 @!@!@
-3: <Lbl_2 line 41, col 10 to line 55, col 22 of module Session3a>
-/\ i = 2
-/\ pc = "Lbl_2"
-/\ inp = <<1, 3, 2>>
-/\ max = 1
-
-@!@!@ENDMSG 2217 @!@!@
-@!@!@STARTMSG 2217:4 @!@!@
-4: <Lbl_2 line 41, col 10 to line 55, col 22 of module Session3a>
-/\ i = 3
-/\ pc = "Lbl_2"
-/\ inp = <<1, 3, 2>>
-/\ max = 3
-
-@!@!@ENDMSG 2217 @!@!@
-@!@!@STARTMSG 2217:4 @!@!@
-5: <Lbl_2 line 41, col 10 to line 55, col 22 of module Session3a>
-/\ i = 4
-/\ pc = "Lbl_2"
-/\ inp = <<1, 3, 2>>
-/\ max = 3
-
-@!@!@ENDMSG 2217 @!@!@
-@!@!@STARTMSG 2103:1 @!@!@
-The error occurred when TLC was evaluating the nested
-expressions at the following positions:
-0. Line 41, column 10 to line 55, column 22 in Session3a
-1. Line 41, column 13 to line 41, column 24 in Session3a
-2. Line 42, column 13 to line 54, column 45 in Session3a
-3. Line 49, column 21 to line 54, column 45 in Session3a
-4. Line 49, column 24 to line 52, column 75 in Session3a
-
-
-@!@!@ENDMSG 2103 @!@!@
+@!@!@STARTMSG 2193:0 @!@!@
+Model checking completed. No error has been found.
+  Estimates of the probability that TLC did not check all reachable states
+  because two distinct states had the same fingerprint:
+  calculated (optimistic):  val = 3.2E-16
+@!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2201:0 @!@!@
-The coverage statistics at 2024-01-10 23:46:04
+The coverage statistics at 2024-01-11 00:28:06
 @!@!@ENDMSG 2201 @!@!@
 @!@!@STARTMSG 2773:0 @!@!@
-<Init line 29, col 1 to line 29, col 4 of module Session3a>: 2:2
+<Init line 31, col 1 to line 31, col 4 of module Session3a>: 32:32
 @!@!@ENDMSG 2773 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 30, col 9 to line 33, col 23 of module Session3a: 2
+  line 32, col 12 to line 32, col 25 of module Session3a: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 33, col 12 to line 33, col 25 of module Session3a: 32
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 35, col 12 to line 35, col 23 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2772:0 @!@!@
-<Lbl_1 line 35, col 1 to line 35, col 5 of module Session3a>: 1:2
+<Lbl_1 line 37, col 1 to line 37, col 5 of module Session3a>: 32:32
 @!@!@ENDMSG 2772 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 35, col 13 to line 35, col 24 of module Session3a: 12
+  line 37, col 13 to line 37, col 24 of module Session3a: 218
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  |line 35, col 13 to line 35, col 14 of module Session3a: 10
+  |line 37, col 13 to line 37, col 14 of module Session3a: 186
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 36, col 13 to line 37, col 64 of module Session3a: 2
+  line 38, col 13 to line 39, col 64 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  |line 36, col 20 to line 36, col 59 of module Session3a: 2
+  |line 38, col 20 to line 38, col 59 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  ||line 36, col 43 to line 36, col 59 of module Session3a: 6
+  ||line 38, col 43 to line 38, col 59 of module Session3a: 90
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  ||line 36, col 29 to line 36, col 39 of module Session3a: 2
+  ||line 38, col 29 to line 38, col 39 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 38, col 13 to line 38, col 25 of module Session3a: 2
+  line 40, col 13 to line 40, col 25 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 39, col 13 to line 39, col 39 of module Session3a: 2
+  line 41, col 13 to line 41, col 39 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2772:0 @!@!@
-<Lbl_2 line 41, col 1 to line 41, col 5 of module Session3a>: 3:6
+<Lbl_2 line 43, col 1 to line 43, col 5 of module Session3a>: 122:122
 @!@!@ENDMSG 2772 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 41, col 13 to line 41, col 24 of module Session3a: 15
+  line 43, col 13 to line 43, col 24 of module Session3a: 308
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  |line 41, col 13 to line 41, col 14 of module Session3a: 9
+  |line 43, col 13 to line 43, col 14 of module Session3a: 186
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 42, col 16 to line 42, col 28 of module Session3a: 8
+  line 44, col 16 to line 44, col 28 of module Session3a: 122
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 43, col 27 to line 43, col 38 of module Session3a: 6
+  line 45, col 27 to line 45, col 38 of module Session3a: 90
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 44, col 32 to line 44, col 47 of module Session3a: 4
+  line 46, col 32 to line 46, col 47 of module Session3a: 47
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 45, col 32 to line 46, col 44 of module Session3a: 2
+  line 47, col 32 to line 48, col 44 of module Session3a: 43
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 47, col 24 to line 47, col 33 of module Session3a: 6
+  line 49, col 24 to line 49, col 33 of module Session3a: 90
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 48, col 24 to line 48, col 36 of module Session3a: 6
+  line 50, col 24 to line 50, col 36 of module Session3a: 90
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 49, col 31 to line 51, col 90 of module Session3a: 2
+  line 51, col 24 to line 54, col 75 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  |line 49, col 34 to line 49, col 44 of module Session3a: 2
+  |line 51, col 31 to line 53, col 89 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  |line 50, col 54 to line 51, col 90 of module Session3a: 2
+  ||line 51, col 34 to line 51, col 44 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  ||line 50, col 55 to line 50, col 89 of module Session3a: 2
+  ||line 52, col 51 to line 53, col 89 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  |||line 50, col 78 to line 50, col 89 of module Session3a: 4
+  |||line 52, col 54 to line 52, col 88 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  |||line 50, col 64 to line 50, col 74 of module Session3a: 2
+  ||||line 52, col 77 to line 52, col 88 of module Session3a: 51
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  ||line 51, col 55 to line 51, col 89 of module Session3a: 2
+  ||||line 52, col 63 to line 52, col 73 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  |||line 51, col 78 to line 51, col 89 of module Session3a: 4
+  |||line 53, col 54 to line 53, col 89 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  |||line 51, col 64 to line 51, col 74 of module Session3a: 2
+  ||||line 53, col 77 to line 53, col 89 of module Session3a: 90
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 53, col 24 to line 53, col 35 of module Session3a: 0
+  ||||line 53, col 63 to line 53, col 73 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 54, col 24 to line 54, col 45 of module Session3a: 0
+  line 55, col 24 to line 55, col 35 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 55, col 13 to line 55, col 22 of module Session3a: 6
+  line 56, col 24 to line 56, col 45 of module Session3a: 32
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 13 to line 57, col 22 of module Session3a: 122
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2772:0 @!@!@
-<Terminating line 58, col 1 to line 58, col 11 of module Session3a>: 0:0
+<Terminating line 60, col 1 to line 60, col 11 of module Session3a>: 0:32
 @!@!@ENDMSG 2772 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 58, col 16 to line 58, col 26 of module Session3a: 4
+  line 60, col 16 to line 60, col 26 of module Session3a: 218
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 58, col 31 to line 58, col 44 of module Session3a: 0
+  |line 60, col 16 to line 60, col 17 of module Session3a: 186
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 60, col 31 to line 60, col 44 of module Session3a: 32
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2202:0 @!@!@
 End of statistics.
 @!@!@ENDMSG 2202 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(5) at 2024-01-10 23:46:04: 5 states generated (346 s/min), 5 distinct states found (346 ds/min), 0 states left on queue.
+Progress(6) at 2024-01-11 00:28:06: 218 states generated (16.812 s/min), 186 distinct states found (14.344 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
-5 states generated, 5 distinct states found, 0 states left on queue.
+218 states generated, 186 distinct states found, 0 states left on queue.
 @!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 6.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 1 and the 95th percentile is 1).
+@!@!@ENDMSG 2268 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 874ms at (2024-01-10 23:46:04)
+Finished in 783ms at (2024-01-11 00:28:06)
 @!@!@ENDMSG 2186 @!@!@
