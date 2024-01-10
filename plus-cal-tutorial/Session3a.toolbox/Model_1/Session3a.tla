@@ -1,45 +1,42 @@
 ------------------------------ MODULE Session3a -------------------------------
 EXTENDS Integers, Sequences, TLC
 
-CONSTANT None
-ASSUME None \notin Int
+CONSTANT minValue
+ASSUME  minValue \in Int
 
-(*********  
+(*********
 
 --algorithm TupleMax {
-   variables inp = <<1, 3, 2>>, max = None, i = 2 ;    
-   { if (inp /= << >>) {
-       max := inp[1] ;
-       while (i =< Len(inp)) {
-         if (inp[i] > max) { max := inp[i] } ;
-         i := i + 1
-       } 
+   variables inp = <<1, 3, 2>>,  max = minValue , i = 1 ;    
+   { 
+     assert  \A n \in 1..Len(inp) : inp[n] > minValue  ;
+     while (i =< Len(inp)) {
+       if (inp[i] > max) { max := inp[i] } ;
+       i := i + 1
      } ;
-     assert IF inp = << >> THEN max = None
+     assert IF inp = << >> THEN max = minValue
                            ELSE    (\E n \in 1..Len(inp) : max = inp[n])
-                                /\ (\A n \in 1..Len(inp) : max > inp[n])
+                                /\ (\A n \in 1..Len(inp) : max > inp[n]) 
    }
 }
 
 ********)
-\* BEGIN TRANSLATION (chksum(pcal) = "c030ee5a" /\ chksum(tla) = "1da560d6")
+\* BEGIN TRANSLATION (chksum(pcal) = "e2ee4c35" /\ chksum(tla) = "d2722cd9")
 VARIABLES inp, max, i, pc
 
 vars == << inp, max, i, pc >>
 
 Init == (* Global variables *)
         /\ inp = <<1, 3, 2>>
-        /\ max = None
-        /\ i = 2
+        /\ max = minValue
+        /\ i = 1
         /\ pc = "Lbl_1"
 
 Lbl_1 == /\ pc = "Lbl_1"
-         /\ IF inp /= << >>
-               THEN /\ max' = inp[1]
-                    /\ pc' = "Lbl_2"
-               ELSE /\ pc' = "Lbl_3"
-                    /\ max' = max
-         /\ UNCHANGED << inp, i >>
+         /\ Assert(\A n \in 1..Len(inp) : inp[n] > minValue, 
+                   "Failure of assertion at line 12, column 6.")
+         /\ pc' = "Lbl_2"
+         /\ UNCHANGED << inp, max, i >>
 
 Lbl_2 == /\ pc = "Lbl_2"
          /\ IF i =< Len(inp)
@@ -49,22 +46,18 @@ Lbl_2 == /\ pc = "Lbl_2"
                                /\ max' = max
                     /\ i' = i + 1
                     /\ pc' = "Lbl_2"
-               ELSE /\ pc' = "Lbl_3"
+               ELSE /\ Assert(IF inp = << >> THEN max = minValue
+                                             ELSE    (\E n \in 1..Len(inp) : max = inp[n])
+                                                  /\ (\A n \in 1..Len(inp) : max > inp[n]), 
+                              "Failure of assertion at line 17, column 6.")
+                    /\ pc' = "Done"
                     /\ UNCHANGED << max, i >>
          /\ inp' = inp
-
-Lbl_3 == /\ pc = "Lbl_3"
-         /\ Assert(IF inp = << >> THEN max = None
-                                  ELSE    (\E n \in 1..Len(inp) : max = inp[n])
-                                       /\ (\A n \in 1..Len(inp) : max > inp[n]), 
-                   "Failure of assertion at line 18, column 6.")
-         /\ pc' = "Done"
-         /\ UNCHANGED << inp, max, i >>
 
 (* Allow infinite stuttering to prevent deadlock on termination. *)
 Terminating == pc = "Done" /\ UNCHANGED vars
 
-Next == Lbl_1 \/ Lbl_2 \/ Lbl_3
+Next == Lbl_1 \/ Lbl_2
            \/ Terminating
 
 Spec == Init /\ [][Next]_vars
@@ -74,6 +67,5 @@ Termination == <>(pc = "Done")
 \* END TRANSLATION 
 ===========================================
 \* Modification History
-\* Last modified Fri Jan 08 17:24:21 PST 2021 by lamport
-\* Last modified Sat Dec 26 11:48:57 PST 2020 by claus
+\* Last modified Wed Jan 10 23:45:56 CET 2024 by alexander
 \* Created Fri Dec 25 11:48:28 PST 2020 by claus

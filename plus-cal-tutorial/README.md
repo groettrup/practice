@@ -27,3 +27,8 @@ this folder contains my notes about the [PlusCal Tutorial](https://lamport.azure
 
 - [Link to the PlusCal Manual](https://lamport.azurewebsites.net/tla/c-manual.pdf)
 
+## [Session 3](https://lamport.azurewebsites.net/tla/tutorial/session3.html)
+
+- Property Driven Development: decide what a program should do before thinking
+  about the how
+- [Why parenthesis are needed](https://lamport.azurewebsites.net/tla/tutorial/parens.html)

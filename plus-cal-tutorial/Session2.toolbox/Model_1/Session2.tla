@@ -3,31 +3,33 @@ precedes the module is ignored.
 
 ------------------------------- MODULE Session2 -------------------------------
 EXTENDS Integers, TLC
- 
-(********
 
+(*
 --algorithm AnyName {
-   variable x = 1 ;    
+   variable x = <<1,2,3>>, y = x ;    
    {  
-     x := x + 1 ;
-     print x
+     x[3] := x[2] + 4;
+     print x;
+     print y
    }
 }
+*)
+\* BEGIN TRANSLATION (chksum(pcal) = "f70b8ee5" /\ chksum(tla) = "85dfba9d")
+VARIABLES x, y, pc
 
-********)
-\* BEGIN TRANSLATION (chksum(pcal) = "8c7a9cc8" /\ chksum(tla) = "9297765c")
-VARIABLES x, pc
-
-vars == << x, pc >>
+vars == << x, y, pc >>
 
 Init == (* Global variables *)
-        /\ x = 1
+        /\ x = <<1,2,3>>
+        /\ y = x
         /\ pc = "Lbl_1"
 
 Lbl_1 == /\ pc = "Lbl_1"
-         /\ x' = x + 1
+         /\ x' = [x EXCEPT ![3] = x[2] + 4]
          /\ PrintT(x')
+         /\ PrintT(y)
          /\ pc' = "Done"
+         /\ y' = y
 
 (* Allow infinite stuttering to prevent deadlock on termination. *)
 Terminating == pc = "Done" /\ UNCHANGED vars
@@ -48,6 +50,6 @@ Text that follows the module is ignored.  The Toolbox maintains the following
 information.
 
 \* Modification History
-\* Last modified Wed Jan 10 22:34:29 CET 2024 by alexander
+\* Last modified Wed Jan 10 22:52:11 CET 2024 by alexander
 \* Last modified Tue Dec 22 16:15:06 PST 2020 by lamport
 \* Created Sat Dec 05 17:41:14 PST 2020 by lamport
