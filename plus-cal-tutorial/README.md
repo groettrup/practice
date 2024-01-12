@@ -37,3 +37,7 @@ this folder contains my notes about the [PlusCal Tutorial](https://lamport.azure
 ### Puzzle
 
 - Writing the empty tuple: `<< >>, [{} -> {}], [1..0 -> -0..-1]`
+
+## [Session 4](https://lamport.azurewebsites.net/tla/tutorial/session4.html)
+
+- `with (id \in S) { body }` to introduce nondeterministic variable `id`
