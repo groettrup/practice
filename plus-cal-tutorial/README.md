@@ -45,4 +45,7 @@ this folder contains my notes about the [PlusCal Tutorial](https://lamport.azure
   means that in the case that the loop is skipped if the tuple is empty.
 - I have not did this which means my program does not ever terminate if i have
   the empty set
-- 
+- why does `with (i \in {})` produce a deadlock in S4E1?
+  - my idea: its body is not executed so the loop condition cannot change
+  - correct: the program cannot find an item so the execution halts
+    ([answer from lamport](https://lamport.azurewebsites.net/tla/tutorial/deadlock.html))
