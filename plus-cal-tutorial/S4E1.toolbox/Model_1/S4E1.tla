@@ -21,7 +21,7 @@ ASSUME  /\ minValue \in Int
     variables max=minValue, inp \in Tuples, I=1..Len(inp), b = (I # {});
     {
         while (b) {
-            with (i \in I) {
+            with (i \in {}) {
                 if (\A j \in I: inp[i] >= inp[j]) {
                     max := inp[i];
                     b   := FALSE
@@ -78,5 +78,5 @@ Termination == <>(pc = "Done")
 
 =============================================================================
 \* Modification History
-\* Last modified Mon Jan 15 19:26:43 CET 2024 by alexander
+\* Last modified Mon Jan 15 19:24:09 CET 2024 by alexander
 \* Created Sat Jan 13 19:45:39 CET 2024 by alexander
