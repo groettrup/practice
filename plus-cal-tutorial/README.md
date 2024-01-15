@@ -41,3 +41,8 @@ this folder contains my notes about the [PlusCal Tutorial](https://lamport.azure
 ## [Session 4](https://lamport.azurewebsites.net/tla/tutorial/session4.html)
 
 - `with (id \in S) { body }` to introduce nondeterministic variable `id`
+- Lamport uses a variable `b = (I \= {})` to see if the loop should run. This
+  means that in the case that the loop is skipped if the tuple is empty.
+- I have not did this which means my program does not ever terminate if i have
+  the empty set
+- 

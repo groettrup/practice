@@ -18,24 +18,65 @@ ASSUME  /\ minValue \in Int
 
 (*
 --algorithm SillyTupleMax {
-    variables max=minValue, inp \in Tuples, I=1..Len(inp)   ;
+    variables max=minValue, inp \in Tuples, I=1..Len(inp), b = (I # {});
     {
-        while (I /= {}) {
+        while (b) {
             with (i \in I) {
-                if (inp[i] > max) {
-                    max := inp[i]
+                if (\A j \in I: inp[i] >= inp[j]) {
+                    max := inp[i];
+                    b   := FALSE
                 };
-                I := I \ {i};
             }
-        }
-        
-        assert \A i \in 1..Len(inp): inp[i] <= max
+        };        
+        assert IF inp = << >>   THEN max = minValue
+                                ELSE    /\ \E n \in 1..Len(inp): max = inp[n]
+                                        /\ \A n \in 1..Len(inp): max >= inp[n]
     }
 }
 
 *)
+\* BEGIN TRANSLATION (chksum(pcal) = "c6b50722" /\ chksum(tla) = "7ed0afc5")
+VARIABLES max, inp, I, b, pc
+
+vars == << max, inp, I, b, pc >>
+
+Init == (* Global variables *)
+        /\ max = minValue
+        /\ inp \in Tuples
+        /\ I = 1..Len(inp)
+        /\ b = (I # {})
+        /\ pc = "Lbl_1"
+
+Lbl_1 == /\ pc = "Lbl_1"
+         /\ IF b
+               THEN /\ \E i \in I:
+                         IF \A j \in I: inp[i] >= inp[j]
+                            THEN /\ max' = inp[i]
+                                 /\ b' = FALSE
+                            ELSE /\ TRUE
+                                 /\ UNCHANGED << max, b >>
+                    /\ pc' = "Lbl_1"
+               ELSE /\ Assert(IF inp = << >>   THEN max = minValue
+                                               ELSE    /\ \E n \in 1..Len(inp): max = inp[n]
+                                                       /\ \A n \in 1..Len(inp): max >= inp[n], 
+                              "Failure of assertion at line 31, column 9.")
+                    /\ pc' = "Done"
+                    /\ UNCHANGED << max, b >>
+         /\ UNCHANGED << inp, I >>
+
+(* Allow infinite stuttering to prevent deadlock on termination. *)
+Terminating == pc = "Done" /\ UNCHANGED vars
+
+Next == Lbl_1
+           \/ Terminating
+
+Spec == Init /\ [][Next]_vars
+
+Termination == <>(pc = "Done")
+
+\* END TRANSLATION 
 
 =============================================================================
 \* Modification History
-\* Last modified Sat Jan 13 20:10:21 CET 2024 by alexander
+\* Last modified Mon Jan 15 19:18:52 CET 2024 by alexander
 \* Created Sat Jan 13 19:45:39 CET 2024 by alexander
