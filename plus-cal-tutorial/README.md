@@ -49,3 +49,13 @@ this folder contains my notes about the [PlusCal Tutorial](https://lamport.azure
   - my idea: its body is not executed so the loop condition cannot change
   - correct: the program cannot find an item so the execution halts
     ([answer from lamport](https://lamport.azurewebsites.net/tla/tutorial/deadlock.html))
+
+### Exercise 2
+
+- my try: `{ n \in \N: \A p,q \in 2..n: n # p*g }`
+- answer: Just use isPrime `{ n \in Int: IsPrime(n) }`
+
+### Exercise 3
+
+- my try: `{ <<p, q>>: p \in Int, q \in (..p) }`
+- my try: `{t \in { <<p, q>>: p \in Int, q \in Int }: t[1] < t[2]}`
