@@ -59,3 +59,40 @@ this folder contains my notes about the [PlusCal Tutorial](https://lamport.azure
 
 - my try: `{ <<p, q>>: p \in Int, q \in (..p) }`
 - my try: `{t \in { <<p, q>>: p \in Int, q \in Int }: t[1] < t[2]}`
+- [A Note on Parsing](https://lamport.azurewebsites.net/tla/tutorial/parsing.html)
+
+### Exercise 4
+
+- > Use UNION to write the set of all tuples of length at most 21 whose elements are "a", "b", or "c".
+- my try: `UNION { t \in {?}: Len(t) <= 21 }`
+- answer: `UNION {[1..i -> {"a","b","c"}] : i \in 0..21} `
+  - `[1..i -> S]` is the set of all tuples of length `i` with elements in `S`
+
+### Puzzle 1
+
+- Define Intersect so that for any set `S` of sets, `Intersect(S)` is the intersection of the sets in `S`
+- my try: `Intersect == UNION {x \subseteq UNION(S): \A s \in S: x \subseteq S }`
+- answer: `Intersect(S) == UNION {v \in UNION(S): \A s \in S: v \in S }`
+
+### Puzzle 2
+
+- What does this set equal: `{(x \in S) : x \in S}`?
+- my try: the set equals S, because for all `x` in S, the condition holds.
+- answer: (x \in S) evaluates to `TRUE` so the result is `{TRUE}` except for the empty set where it is the empty set.
+
+### Exercise 5
+
+- What is this set: `(S \X T) \X U` ?
+- my try: `{<<s,t,u>>: s \in S, t \in T, u \in U}`
+- answer: `{<< <<s, t>>, u >> : s \in S, t \in T, u \in U}`
+
+### Exercise 6
+
+- How many ways can you write the set of all 1-tuples whose element is in the set `S` ?
+- my try:
+  1. `{ <<s>> : s \in S }`
+  2. `S \X {}`
+  3. `{ [1 -> s]: s \in S }`
+- answer: 
+  1. `[{1} -> S]`
+  2. `{<<s>> : s \in S}`
