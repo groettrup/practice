@@ -11,7 +11,7 @@ void handle_events(){
 
 /* build the build program and build main afterwards */
 void build_self(){
-    int flag = system("gcc build.c -o build.tmp");
+    int flag = system("gcc -std=c11 build.c -o build.tmp");
     if(flag!=0){
         fprintf(stderr, "selfbuild returned %d, not replacing build file\n", flag);
         exit(EXIT_FAILURE);
@@ -24,7 +24,7 @@ void build_self(){
 }
 /* build the main program */
 void build_main(){
-    int error = system("gcc main.c -o main");
+    int error = system("gcc -std=c11 main.c -o main");
     if(error != 0){
         fprintf(stderr, "could not build main, exit code %d\n", error);
         exit(EXIT_FAILURE);

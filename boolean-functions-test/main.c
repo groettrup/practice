@@ -1,9 +1,11 @@
+/*
+ * Test program for a book about boolean functions.
+ * I want to be compatible with python so i am using utf8 to encode my strings
+ */
 #include <locale.h>
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <uchar.h>
-#include <wchar.h>
+#include <string.h>
 
 static const size_t MAX_STR_LEN = 256;
 
@@ -17,35 +19,58 @@ enum OBJECT_TYPE {
 struct object {
     enum OBJECT_TYPE type;
     int size;
-    uint8_t arr[];
+    char arr[];
 };
 
 /* declarations*/
 void print_info(void);
-struct object* plain_from_wchrs(const wchar_t* str);
+void print_object(const struct object *obj);
+struct object* plain_from_chrs(const char* str);
 
 /* definitions */
 int main(int argc, char *argv[])
 {
     setlocale(LC_ALL, "de_DE.utf8");
-    plain_from_wchrs(L"This is a test of the widechar system from Gröttrup");
+    struct object *obj = plain_from_chrs(u8"ö");
+    print_object(obj);
+    obj->type=OT_KEY;
+    print_object(obj);
     print_info();
     return EXIT_SUCCESS;
 }
 
 void print_info(){
-    wprintf(L"objects can be either plaintext, key, or cipher.\n");
+    printf("objects can be either plaintext, key, or cipher.\n");
 }
 
-struct object* plain_from_wchrs(const wchar_t* str){
-    int str_len = wcsnlen(str, MAX_STR_LEN);
+void print_object(const struct object *obj){
+    switch(obj->type){
+        case OT_PLAIN:
+            printf("'%s'\n",obj->arr);
+            return;
+        case OT_KEY:
+            printf("key: '");
+            break;
+        case OT_CIPHER:
+            printf("cipher: '");
+            break;
+    }
+    for(int i=0; i<obj->size; i++){
+        printf("%hhx",obj->arr[i]);
+    }
+    puts("'\n");
+}
+    
+
+struct object* plain_from_chrs(const char* str){
+    int str_len = strlen(str);
     if(str_len == 0 || str_len == MAX_STR_LEN){
-        fwprintf(stderr, L"Stringlength not in range: %ld\n", str_len);
+        fprintf(stderr, "Stringlength not in range: %d\n", str_len);
         exit(EXIT_FAILURE);
     }
-    struct object *new_obj = malloc(sizeof(struct object) + sizeof(char32_t) * str_len);
+    struct object *new_obj = malloc(sizeof(struct object) + str_len);
     new_obj->type=OT_PLAIN;
     new_obj->size=str_len;
-    wcsncpy((wchar_t*)new_obj->arr, str, new_obj->size);
+    strncpy(new_obj->arr, str, new_obj->size);
     return new_obj;
 };
