@@ -23,36 +23,34 @@ struct object {
 };
 
 /* declarations*/
-void print_info(void);
 void print_object(const struct object *obj);
+static char find_offset(char c);
 struct object* plain_from_chrs(const char* str);
+struct object* key_from_hex(const char* str);
 
 /* definitions */
 int main(int argc, char *argv[])
 {
     setlocale(LC_ALL, "de_DE.utf8");
-    struct object *obj = plain_from_chrs(u8"ö");
-    print_object(obj);
+    struct object *obj;
+    obj = plain_from_chrs(u8"Brötchen");
     obj->type=OT_KEY;
     print_object(obj);
-    print_info();
+    obj = key_from_hex(u8"4272c3b6746368656e");
+    print_object(obj);
     return EXIT_SUCCESS;
-}
-
-void print_info(){
-    printf("objects can be either plaintext, key, or cipher.\n");
 }
 
 void print_object(const struct object *obj){
     switch(obj->type){
         case OT_PLAIN:
-            printf("'%s'\n",obj->arr);
+            printf("pt (len=%d): '%s'\n",obj->size,obj->arr);
             return;
         case OT_KEY:
-            printf("key: '");
+            printf("key(len=%d): '",obj->size);
             break;
         case OT_CIPHER:
-            printf("cipher: '");
+            printf("ct (len=%d): '",obj->size);
             break;
     }
     for(int i=0; i<obj->size; i++){
@@ -60,7 +58,27 @@ void print_object(const struct object *obj){
     }
     puts("'\n");
 }
-    
+
+struct object* key_from_hex(const char* str){
+    int str_len = strlen(str);
+    if(str_len == 0 || str_len == MAX_STR_LEN || str_len % 2 != 0){
+        fprintf(stderr, "Stringlength not in range: %d\n", str_len);
+        exit(EXIT_FAILURE);
+    }
+    struct object *new_obj = malloc(sizeof(struct object) + str_len / 2 + 1);
+    new_obj->type=OT_KEY;
+    new_obj->size=str_len/2;
+    for(int i=0;i<new_obj->size;i++){
+        char c, o;
+        c = str[2*i];
+        o = find_offset(c);
+        new_obj->arr[i] = (c - o) << 4;
+        c = str[2*i+1];
+        o = find_offset(c);
+        new_obj->arr[i] += (c - o);
+    }
+    return new_obj;
+}
 
 struct object* plain_from_chrs(const char* str){
     int str_len = strlen(str);
@@ -68,9 +86,17 @@ struct object* plain_from_chrs(const char* str){
         fprintf(stderr, "Stringlength not in range: %d\n", str_len);
         exit(EXIT_FAILURE);
     }
-    struct object *new_obj = malloc(sizeof(struct object) + str_len);
+    struct object *new_obj = malloc(sizeof(struct object) + str_len + 1);
     new_obj->type=OT_PLAIN;
     new_obj->size=str_len;
     strncpy(new_obj->arr, str, new_obj->size);
     return new_obj;
 };
+
+static char find_offset(char c){
+    if(c <= 'Z' && c >= 'A') return ('A' - 10);
+    if(c <= 'z' && c >= 'a') return ('a' - 10);
+    if(c <= '9' && c >= '0') return '0';
+    fprintf(stderr,"could not find character range for hex char %c\n", c);
+    exit(EXIT_FAILURE);
+}
