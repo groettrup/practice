@@ -4,6 +4,8 @@ author: Alexander Gröttrup
 date: 2024-02-27
 ---
 
+next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-objects-and-variables/
+
 # Chapter List
 
 - [x] Chapter 0
@@ -38,6 +40,22 @@ date: 2024-02-27
     > name (e.g. `-std=c++2c`) for experimental support for features from the
     > upcoming language standard.
 - [ ] Chapter 1
+  - from 1.1 - quiz time: 
+    - a statement declares an action of the program.
+    - a function executes a number of statements based on an input.
+    - all programs need a main function.
+    - the program starts with ~~the loader and then~~ the main function.
+    - statements are often ended with a semicolon.
+    - a syntax error means that the program could not be parsed.
+    - the c++ standard library is a collection of useful statements.
+  - from 1.2:
+    - warning:
+      > Don’t use multi-line comments inside other multi-line comments.
+      > Wrapping single-line comments inside a multi-line comment is okay.
+    - best practice:
+      > Comment your code liberally, and write your comments as if speaking to
+      > someone who has no idea what the code does. Don’t assume you’ll remember
+      > why you made specific choices.
 - [ ] Chapter 2
 - [ ] Chapter 3
 - [ ] Chapter 4
