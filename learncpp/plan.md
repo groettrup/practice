@@ -4,7 +4,7 @@ author: Alexander Gröttrup
 date: 2024-02-27
 ---
 
-next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-objects-and-variables/
+next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-functions/
 
 # Chapter List
 
@@ -39,7 +39,7 @@ next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-objects-and-
     > `-std=c++2a` for C++20 support instead. You can also try the latest code
     > name (e.g. `-std=c++2c`) for experimental support for features from the
     > upcoming language standard.
-- [ ] Chapter 1
+- [x] Chapter 1
   - from 1.1 - quiz time: 
     - a statement declares an action of the program.
     - a function executes a number of statements based on an input.
@@ -54,8 +54,66 @@ next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-objects-and-
       > Wrapping single-line comments inside a multi-line comment is okay.
     - best practice:
       > Comment your code liberally, and write your comments as if speaking to
-      > someone who has no idea what the code does. Don’t assume you’ll remember
-      > why you made specific choices.
+      > someone who has no idea what the code does. Don’t assume you’ll
+      > remember why you made specific choices.
+  - from 1.3 - quiz time:
+    - data is information processed by the computer
+    - values are the different states a variable can be in.
+    - a variable is a name for an object.
+    - the identifier is the name of a variable.
+    - the type describes the meaning and layout of the data in a variable
+    - integer is the type for whole numbers that can be represented using 4
+      bytes
+  - from 1.4
+    - > There are 6 ways to initialize a variable.
+      1. default initialization (`int b;`): no initializer provided, variable
+         is left uninitialized (with undetermined value) in most cases.
+      1. copy initialization (`int b=5;`): less efficient than other ways. Used
+         whenever values are implicitly copied.
+      1. direct initialization (`int b(5)`): largely superseded by list
+         initialization.
+      1. list initialization (`int a { 5 };int b = { 5 }`): 
+         > ## Best practice
+         > Prefer direct list initialization (or value initialization) for
+         > initializing your variables.
+      1. value initialization (`int b {}`): if the variable is initialized to 0
+         it is called zero initialization.
+    - `[[maybe_unused]]`: attribute before variable to disable warning.
+    - quiz time:
+      - initialization happens at definition. assignments can happen to defined
+        variables.
+      - i should prefer list initialization.
+      - value initialization uses a default value. default initialization
+        leaves the value undetermined.
+  - from 1.5:
+    - `std::cout` is buffered, `std::endl` adds a newline and flushes the
+      buffer.
+    - quiz time:
+      - h -> 0
+      - 12.5 -> 12
+      - -3 -> -3
+      - Hello -> 0
+      - 3000000000000 -> 2147483647
+      - 1234abc -> 1234
+      - abc1234 -> 0
+  - from 1.6:
+    - default initialization does not seem to work
+    - quiz time:
+      - an uninitialized variable does not hold a determined variable. it is
+        undefined behaviour.
+      - undefined behaviour is everything that is not specified by the
+        language spec or the implementation.
+  - from 1.7
+    - > Identifier names that start with a capital letter are typically used
+      > for user-defined types (such as structs, classes, and enumerations,
+      > all of which we will cover later).
+    - don't start variables with underscores
+    - quiz time
+      - conv, unconv, unconv, invalid, conv, invalid, conv, invalid, conv 
+  - from 1.8
+    > quoted text seperated by nothing but whitespace […] will be concatenated
+  - from 1.9
+    - number of operants an operator takes is called **arity**.
 - [ ] Chapter 2
 - [ ] Chapter 3
 - [ ] Chapter 4
