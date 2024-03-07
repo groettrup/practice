@@ -17,3 +17,4 @@ then
 fi
 
 find "$folder_path" -type f -name '*.py' | xargs -P0 -I{} gpg --symmetric --batch --yes --passphrase="$password" {}
+find "$folder_path" -type f -name '*.sage' | xargs -P0 -I{} gpg --symmetric --batch --yes --passphrase="$password" {}

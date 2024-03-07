@@ -16,4 +16,5 @@ then
 fi
 
 find "$folder_path" -type f -name '*.py' -delete
+find "$folder_path" -type f -name '*.sage' -delete
 

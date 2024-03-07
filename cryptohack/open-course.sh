@@ -17,3 +17,4 @@ then
 fi
 
 find "$folder_path" -type f -name '*.py.gpg' -print0 | sed 's/.py.gpg//g' | xargs -0 -P0 -I{} gpg --decrypt --batch --yes --passphrase="$password" --output={}.py {}.py.gpg 
+find "$folder_path" -type f -name '*.sage.gpg' -print0 | sed 's/.sage.gpg//g' | xargs -0 -P0 -I{} gpg --decrypt --batch --yes --passphrase="$password" --output={}.sage {}.sage.gpg 
