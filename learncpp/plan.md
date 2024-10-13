@@ -4,7 +4,7 @@ author: Alexander Gröttrup
 date: 2024-02-27
 ---
 
-next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-functions/
+next chapter: https://www.learncpp.com/cpp-tutorial/syntax-and-semantic-errors/
 
 # Chapter List
 
@@ -115,6 +115,79 @@ next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-functions/
   - from 1.9
     - number of operants an operator takes is called **arity**.
 - [ ] Chapter 2
+  - from 2.1
+    > A function whose definition is placed inside another function is a nested
+    > function. Unlike some other programming languages, in C++ functions
+    > cannot be nested.
+    - quiz time 
+      - function body
+      - "Starting main()\nInn doA()\nIn doB()\nIn doB()\nEnding main()\n"
+  - from 2.2
+    - `main` is required to return an `int` and cannot be called explicitly _(unlike C)_
+    - `EXIT_SUCCESS` and `EXIT_FAILURE` are defined in `cstdlib`
+    - quiz time
+      - "16", error: nested functions, "", "5\n5\n", error: keyword
+      - "Don't Repeat Yourself: avoid duplicate code"
+  - from 2.3
+    - quiz time
+      - "A\nB\n", error: no value for cout 
+  - from 2.4
+    - unereferenced parameters can be writte without value names
+    - quiz time:
+      - multiply return type is void instead of int.
+      - multiply does not return the product, and there is only on parameter
+        used by main
+      - "24"
+      - in 02-04-quiz.cpp
+  - from 2.5
+    - quiz time:
+      ```
+      main: x = 1 y = 2
+      doIt: x = 1 y = 4
+      doIt: x = 3 y = 4
+      main: x = 1 y = 2
+      ```
+  - from 2.6
+    - why use functions? organization, reusability, testing, extensibility,
+      abstraction
+  - from 2.7
+    - > A **forward declaration** allows us to tell the compiler about the
+      > existence of an identifier _before_ actually defining the identifier.
+    - use a function declaration (also called function prototype)
+    - > In C++ all definitions are declarations
+    - quiz time
+      - the declaration of a function
+      - declaration before the definition
+      - returntype functionname(parameters);
+      - `int doMath(int,int,int,int);`
+      - fail compile, fail compile, fail link, runs, runs
+  - from 2.8
+    - always add new files
+  - from 2.10
+    - object-like macros are not necessary in C++
+  - from 2.11
+    - Do not use relative paths for includes
+    - each file should explicitly include all header files it needs
+  - from 2.12
+    - instead of header guard you can use `#pragma once`
+    - pragmas are not part of the standard
+  - from 2.13
+    - design steps:
+      1. define your goal: useful to express as user-facing outcomes
+      2. define requirements: constraints and capabilities (what not how)
+      3. define tools, targets, backup: 
+         target architecture, testing / feedback / release strategy
+      4. break hard problems down: create tark hierarchies (use as structure)
+      5. figure out sequence of events: how to link the tasks together
+    - advice:
+      - start with simple programs
+      - add features over time
+      - focus on one area over time
+      - test each piece as you go
+      - don't invest in perfecting early code
+      - optimize for maintainability
+
+
 - [ ] Chapter 3
 - [ ] Chapter 4
 - [ ] Chapter 5
