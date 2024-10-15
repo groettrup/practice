@@ -4,7 +4,7 @@ author: Alexander Gröttrup
 date: 2024-02-27
 ---
 
-next chapter: https://www.learncpp.com/cpp-tutorial/syntax-and-semantic-errors/
+next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-fundamental-data-types/
 
 # Chapter List
 
@@ -186,9 +186,23 @@ next chapter: https://www.learncpp.com/cpp-tutorial/syntax-and-semantic-errors/
       - test each piece as you go
       - don't invest in perfecting early code
       - optimize for maintainability
-
-
-- [ ] Chapter 3
+- [X] Chapter 3
+  - from 3.4 - 3.9
+    - why print debugging is not great: code/output clutter, require modification, need to be removed
+    - C++ has `std::clog` as logger, but it uses stderr by standard
+    - a different 3rd party logger is [plog](https://github.com/SergiusTheBest/plog)
+    - [rr debugger](https://rr-project.org/) can rewind
+    - mentions local watches
+  - from 3.x
+    - quiz time 
+      - the callstack for q3:
+        ```
+        #0  d () at 03-XX-q3.cpp:3
+        #1  0x0000555555555135 in b () at 03-XX-q3.cpp:9
+        #2  0x0000555555555141 in a () at 03-XX-q3.cpp:13
+        #3  0x000055555555514d in main () at 03-XX-q3.cpp:17
+        ```
+      - cin parses based on type. chars are read as ascii
 - [ ] Chapter 4
 - [ ] Chapter 5
 - [ ] Chapter 6
