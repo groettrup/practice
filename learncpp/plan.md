@@ -4,7 +4,7 @@ author: Alexander Gröttrup
 date: 2024-02-27
 ---
 
-next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-fundamental-data-types/
+next chapter: https://www.learncpp.com/cpp-tutorial/constant-variables-named-constants/
 
 # Chapter List
 
@@ -204,6 +204,64 @@ next chapter: https://www.learncpp.com/cpp-tutorial/introduction-to-fundamental-
         ```
       - cin parses based on type. chars are read as ascii
 - [ ] Chapter 4
+  - from 4.2: void to declare no function parameters is deprecated
+  - from 4.3: more info to [fundamental types](https://en.cppreference.com/w/cpp/language/types)
+  - from 4.4
+    - keyword `signed` exists but should not be used
+    - overflow for signed integers is undefined behaviour
+    - division on integers drops the fractional part
+    - results of integer division are perdictable
+    - quiz time
+      - range of a 5 bit integer would be (-2^4) to (2^4-1): [-16:15]
+      - the result of 13/5 for signed integers would be 2
+      - the result of -13/5 for signed integers would be -2
+  - from 4.5
+    - signed integers may be implicitly converted to unsigned
+    - use uints when dealing with bin manipulation, w/ well defined wrap-around
+      behaviour
+    - memory limited context makes use of unsigned number more common
+  - from 4.6
+    - fixed-width ints can be accessed by including `<cstdint>`
+    - `std::int_fast8_t` provides the fastest integer type with a width of
+      at least 8 bits
+    - `std::uint_least8_t` provides the smallest integer type with a width of at
+      least # bits
+    - `std::int_8_t` and `std::uint_8_t` might behave like char
+    - `std::size_t` is an alias for an undefined unsigned number used for the
+      length of objects
+  - from 4.7
+    - quiz time
+      - 3.450e1
+      - 4.000e-3
+      - 1.23005e2
+      - 1.46e5
+      - 1.46000001e5
+      - 8e-10
+      - 3.45000e2
+      - 1.46000e5
+  - from 4.8
+    - floats are always iee 754 4B and 8B
+    - 4 bytes give 6-9 significant digits
+    - 8 bytes give 15-18 significant digits
+    - tool to see floats: https://float.exposed/
+  - from 4.9
+    - use `std::boolalpha` to parse true and false to bool
+  - from 4.10
+    - quiz time
+      - an early return is a return based on a conditional that returns before
+        the whole function is evaluated
+  - from 4.11: avoid `wchar_t` if not interfacing with windows api
+  - from 4.12
+    - use `static_cast<type>(expr)`
+  - from 4.X
+    - int
+    - bool
+    - double
+    - int
+    - float
+    - std::int32_t ~~long long~~
+    - char
+    - std::int16_t
 - [ ] Chapter 5
 - [ ] Chapter 6
 - [ ] Chapter 7
