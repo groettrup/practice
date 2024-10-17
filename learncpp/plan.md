@@ -4,7 +4,7 @@ author: Alexander Gröttrup
 date: 2024-02-27
 ---
 
-next chapter: https://www.learncpp.com/cpp-tutorial/constant-variables-named-constants/
+next chapter: https://www.learncpp.com/cpp-tutorial/operator-precedence-and-associativity/
 
 # Chapter List
 
@@ -161,7 +161,7 @@ next chapter: https://www.learncpp.com/cpp-tutorial/constant-variables-named-con
       - returntype functionname(parameters);
       - `int doMath(int,int,int,int);`
       - fail compile, fail compile, fail link, runs, runs
-  - from 2.8
+  - from 4.8
     - always add new files
   - from 2.10
     - object-like macros are not necessary in C++
@@ -203,7 +203,7 @@ next chapter: https://www.learncpp.com/cpp-tutorial/constant-variables-named-con
         #3  0x000055555555514d in main () at 03-XX-q3.cpp:17
         ```
       - cin parses based on type. chars are read as ascii
-- [ ] Chapter 4
+- [X] Chapter 4
   - from 4.2: void to declare no function parameters is deprecated
   - from 4.3: more info to [fundamental types](https://en.cppreference.com/w/cpp/language/types)
   - from 4.4
@@ -262,7 +262,61 @@ next chapter: https://www.learncpp.com/cpp-tutorial/constant-variables-named-con
     - std::int32_t ~~long long~~
     - char
     - std::int16_t
-- [ ] Chapter 5
+- [X] Chapter 5
+  - from 5.1
+    - it's more common to use const before the type
+    - const-after-type is called east const
+    - In C++ const vars are commonnly named  `kEarthGravity` instead of the C
+      `EARTH_GRAVITY`
+    - Function parameters can be made const, but it is not used anymore
+    - const is a *type qualifier* 
+  - from 5.5
+    - constexpr is always compile-time
+    - constexpr does not work with dynamically allocated objects
+  - from 5.7
+    - historically inline was used as a hint to the compiler
+    - in modern C++ `inline` is used to allow multiple definitions of a
+      function
+    - functions defined in header files would be included in multiple files and
+      are made possible this way
+    - inline functions can increase compile times significantly
+    - > Unlike constexpr functions, constexpr variables are not inline by
+      default
+  - from 5.8
+    - constexpr functions are implicitly inline
+    - forward declaration from another TU works only for runtime evaluation
+    - there is no way to determine when a constexpr function call is evaluated
+    - > C++20 introduced **consteval** which indicates that a function *must*
+      > evaluate at compile-time, otherwise a compile error will result. such
+      > functions are called immediate functions
+    - using consteval as a helper, you can force compile time execution
+  - from 5.9
+    - `std::getline` to extract a line from stdin
+    - `std::cin >> std::ws` to remove whitespace before the first input
+    - pass by value copies a string (expensive!)
+    - s suffix on a literal makes it a `std::string`: `"foo"s`
+    - string literals live in the namespace `std::literals::string_literals`
+  - from 5.10
+    - C++17 introduced `std::string_view`
+    - can use both string styles
+    - is usable in constexpr
+  - from 5.11
+    - > **Warning** A view is dependent on the object being viewed. If the
+      > object being viewed is modified or destroyed while the view is still
+      > being used, unexpected or undefined behaviour will result.
+    - initializing a string view with a string literal leaves the view dangling
+    - if a string is modified, all views are invalidated
+    - an invalid string view can be revalidated
+    - string views can view a substring and do not need to be null terminated
+  - from 5.X
+    - avoid magic numbers that are missing context. defines are not debuggable
+    - 1. `uint8_t` most likely used like char by cout
+      2. `.` is not in desired output _and a multicharacter literal_
+      3. `16` is a magic number
+    - make `calculateBallHeight` a `constexpr`
+    - `std::string` owns the actual data while `std::string_view` references
+      it. References can become invalid or dangle if the underlying data
+      changes or is destroyed.
 - [ ] Chapter 6
 - [ ] Chapter 7
 - [ ] Chapter 8
