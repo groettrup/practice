@@ -4,7 +4,7 @@ author: Alexander Gröttrup
 date: 2024-02-27
 ---
 
-next chapter: https://www.learncpp.com/cpp-tutorial/operator-precedence-and-associativity/
+next chapter: https://www.learncpp.com/cpp-tutorial/arithmetic-operators/
 
 # Chapter List
 
@@ -318,6 +318,13 @@ next chapter: https://www.learncpp.com/cpp-tutorial/operator-precedence-and-asso
       it. References can become invalid or dangle if the underlying data
       changes or is destroyed.
 - [ ] Chapter 6
+  - from 6.1
+    - order of execution is independent of precedence
+    - quiz time
+      - x=((3+4)+5)
+      - x=(y=z)
+      - z *= ((++y)y5)
+      - ~~a || (b && (c || d))~~ (a||(b&&c))||d
 - [ ] Chapter 7
 - [ ] Chapter 8
 - [ ] Chapter 9
